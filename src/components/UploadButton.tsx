@@ -4,11 +4,25 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { Button } from "./ui/button";
 import DropZone from "react-dropzone";
-import { Cloud, File } from "lucide-react";
+import { Cloud, File, Loader2 } from "lucide-react";
 import { Progress } from "./ui/progress";
+import { useToast } from "./ui/use-toast";
+import { useUploadThing } from "@/lib/uploadthing";
+import { trpc } from "@/app/_trpc/client";
+import { useRouter } from "next/navigation";
 const UploadDropZone = () => {
+  const router = useRouter();
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
+  const { startUpload } = useUploadThing("pdfUploader");
+  const { toast } = useToast();
+  const { mutate: getFilePolling } = trpc.getFile.useMutation({
+    onSuccess: (file) => {
+      router.push(`/dashboard/${file.id}`);
+    },
+    retry: true,
+    retryDelay: 500,
+  });
 
   const startSimulatedProgress = () => {
     setUploadProgress(0);
@@ -31,10 +45,29 @@ const UploadDropZone = () => {
         setIsUploading(true);
         const progressInterval = startSimulatedProgress();
 
-        // handle file upload
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        const res = await startUpload(acceptedFile);
+
+        if (!res) {
+          return toast({
+            title: "Something went wrong",
+            description: "Please try again",
+            variant: "destructive",
+          });
+        }
+
+        const [fileResponse] = res;
+        const key = fileResponse.key;
+
+        if (!key) {
+          return toast({
+            title: "Something went wrong",
+            description: "Please try again",
+            variant: "destructive",
+          });
+        }
         clearInterval(progressInterval);
-        setIsUploading(false);
+        setUploadProgress(100)
+        getFilePolling({ key });
       }}
     >
       {({ getRootProps, getInputProps, acceptedFiles }) => (
@@ -69,11 +102,20 @@ const UploadDropZone = () => {
               ) : null}
 
               {isUploading ? (
-                <div className="max-w-xs m-auto mt-4 w-full">
+                <div className="max-w-xs mx-auto mt-4 w-full">
                   <Progress
+                    indicatorColor={
+                      uploadProgress === 100 ? "bg-green-500" : undefined
+                    }
                     value={uploadProgress}
                     className="w-full h-1 bg-zinc-200"
                   />
+                  {uploadProgress === 100 ? (
+                    <div className="flex gap-1 justify-center items-center text-sm text-center pt-2 text-zinc-700">
+                      <Loader2 className="h-3 w-3 animate-spin" />
+                      Redirecting...
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
             </label>
