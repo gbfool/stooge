@@ -4,6 +4,7 @@ specifiers:
   '@kinde-oss/kinde-auth-nextjs': ^1.8.24
   '@prisma/client': 5.4.2
   '@radix-ui/react-dialog': ^1.0.5
+  '@radix-ui/react-progress': ^1.0.3
   '@radix-ui/react-slot': ^1.0.2
   '@tailwindcss/typography': ^0.5.10
   '@tanstack/react-query': ^4.35.3
@@ -14,6 +15,7 @@ specifiers:
   '@types/node': ^20
   '@types/react': ^18
   '@types/react-dom': ^18
+  '@uploadthing/react': ^5.7.0
   autoprefixer: ^10
   class-variance-authority: ^0.7.0
   clsx: ^2.0.0
@@ -26,18 +28,21 @@ specifiers:
   prisma: 5.4.2
   react: ^18
   react-dom: ^18
+  react-dropzone: ^14.2.3
   react-loading-skeleton: ^3.3.1
   react-pdf: ^7.5.1
   tailwind-merge: ^1.14.0
   tailwindcss: ^3
   tailwindcss-animate: ^1.0.7
   typescript: ^5
+  uploadthing: ^5.7.2
   zod: ^3.22.4
 
 dependencies:
   '@kinde-oss/kinde-auth-nextjs': 1.8.24_biqbaboplfbrettd7655fr4n2y
   '@prisma/client': 5.4.2_prisma@5.4.2
   '@radix-ui/react-dialog': 1.0.5_pipvdqpnkok7tsr4kdirij3tbu
+  '@radix-ui/react-progress': 1.0.3_pipvdqpnkok7tsr4kdirij3tbu
   '@radix-ui/react-slot': 1.0.2_4r6hgnselqdgzo3f3gd364vqle
   '@tailwindcss/typography': 0.5.10_tailwindcss@3.3.3
   '@tanstack/react-query': 4.36.1_biqbaboplfbrettd7655fr4n2y
@@ -45,6 +50,7 @@ dependencies:
   '@trpc/next': 10.41.0_7af5ly2qaximxhn267uodthfvq
   '@trpc/react-query': 10.41.0_mqhno2i6omdqf33ohukdnocrqm
   '@trpc/server': 10.41.0
+  '@uploadthing/react': 5.7.0_2uuzqv634ekllhidoh7wbpwahq
   class-variance-authority: 0.7.0
   clsx: 2.0.0
   date-fns: 2.30.0
@@ -52,10 +58,12 @@ dependencies:
   next: 13.5.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-dropzone: 14.2.3_react@18.2.0
   react-loading-skeleton: 3.3.1_react@18.2.0
   react-pdf: 7.5.1_6zeq3s7qrgz7xead6ym4yxv6eq
   tailwind-merge: 1.14.0
   tailwindcss-animate: 1.0.7_tailwindcss@3.3.3
+  uploadthing: 5.7.2_zod@3.22.4
   zod: 3.22.4
 
 devDependencies:
@@ -580,6 +588,28 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
+  /@radix-ui/react-progress/1.0.3_pipvdqpnkok7tsr4kdirij3tbu:
+    resolution: {integrity: sha512-5G6Om/tYSxjSeEdrb1VfKkfZfn/1IlPWd731h2RfPuSbIfNUgfqAwbKfJCg/PP6nuUCTrYzalwHSpSinoWoCag==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.2
+      '@radix-ui/react-context': 1.0.1_4r6hgnselqdgzo3f3gd364vqle
+      '@radix-ui/react-primitive': 1.0.3_pipvdqpnkok7tsr4kdirij3tbu
+      '@types/react': 18.2.28
+      '@types/react-dom': 18.2.13
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /@radix-ui/react-slot/1.0.2_4r6hgnselqdgzo3f3gd364vqle:
     resolution: {integrity: sha512-YeTpuq4deV+6DusvVUW4ivBgnkHwECUu0BiN43L5UCDFgdhsRUWAghhTF5MbvNTPzmiFOx90asDSUjWuCNapwg==}
     peerDependencies:
@@ -851,6 +881,57 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
+  /@uploadthing/mime-types/0.2.1:
+    resolution: {integrity: sha512-UDySsPbdi7wp52WG7mp5CiZwaTvokDubqhm1xhFm73Bqhp0PsGbwSSF5PdCXH4fe8Y4EKGrMyWQ4i1fF9+DVVQ==}
+    dev: false
+
+  /@uploadthing/react/5.7.0_2uuzqv634ekllhidoh7wbpwahq:
+    resolution: {integrity: sha512-rSBzoC2eMRM2d6Mpis6RXfo1Y5JsV7oJanTmaVdltFLRxbO/4lwK1kvHM4qwDUvn01UpxBtcVayimMBXNJ0V8Q==}
+    peerDependencies:
+      next: '*'
+      react: ^17.0.2 || ^18.0.0
+      uploadthing: ^5.0.0
+    peerDependenciesMeta:
+      next:
+        optional: true
+    dependencies:
+      '@uploadthing/shared': 5.2.5_zod@3.22.4
+      attr-accept: 2.2.2
+      file-selector: 0.6.0
+      next: 13.5.5_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      tailwind-merge: 1.14.0
+      uploadthing: 5.7.2_zod@3.22.4
+    transitivePeerDependencies:
+      - '@uploadthing/mime-types'
+      - zod
+    dev: false
+
+  /@uploadthing/shared/5.2.5_3m7titkmphg2qnptjtv5nfrvzy:
+    resolution: {integrity: sha512-b6Nr0YzV9iinVK9OydBVQH0xPQEPgw7ty/q9aQbEnRQedc4TqARaYQEoMvTu7bRuiK7MIpKodzVTQdFKHhMLTg==}
+    peerDependencies:
+      '@uploadthing/mime-types': ^0.2.0
+      zod: ^3.22.3
+    peerDependenciesMeta:
+      '@uploadthing/mime-types':
+        optional: true
+    dependencies:
+      '@uploadthing/mime-types': 0.2.1
+      zod: 3.22.4
+    dev: false
+
+  /@uploadthing/shared/5.2.5_zod@3.22.4:
+    resolution: {integrity: sha512-b6Nr0YzV9iinVK9OydBVQH0xPQEPgw7ty/q9aQbEnRQedc4TqARaYQEoMvTu7bRuiK7MIpKodzVTQdFKHhMLTg==}
+    peerDependencies:
+      '@uploadthing/mime-types': ^0.2.0
+      zod: ^3.22.3
+    peerDependenciesMeta:
+      '@uploadthing/mime-types':
+        optional: true
+    dependencies:
+      zod: 3.22.4
+    dev: false
+
   /abbrev/1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
     dev: false
@@ -1030,6 +1111,11 @@ packages:
     dependencies:
       has-symbols: 1.0.3
     dev: true
+
+  /attr-accept/2.2.2:
+    resolution: {integrity: sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==}
+    engines: {node: '>=4'}
+    dev: false
 
   /autoprefixer/10.4.16_postcss@8.4.31:
     resolution: {integrity: sha512-7vd3UC6xKp0HLfua5IjZlcXvGAGy7cBAXTg2lyQ/8WpNhd6SiZ8Be+xm3FyBSYJx5GKcpRCzBh7RH4/0dnY+uQ==}
@@ -1767,6 +1853,13 @@ packages:
     dependencies:
       flat-cache: 3.1.1
     dev: true
+
+  /file-selector/0.6.0:
+    resolution: {integrity: sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==}
+    engines: {node: '>= 12'}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
 
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
@@ -2838,6 +2931,18 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-dropzone/14.2.3_react@18.2.0:
+    resolution: {integrity: sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug==}
+    engines: {node: '>= 10.13'}
+    peerDependencies:
+      react: '>= 16.8 || 18.0.0'
+    dependencies:
+      attr-accept: 2.2.2
+      file-selector: 0.6.0
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -3461,6 +3566,16 @@ packages:
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
+
+  /uploadthing/5.7.2_zod@3.22.4:
+    resolution: {integrity: sha512-VgNJP+gn4k835BV6E+oOq7FLGNAlh9fUB+jAotvplvQBxCkglEKlI7Hd7iynydbx0wLC1R/idRpJJNiMCAR33A==}
+    engines: {node: '>=18.13.0'}
+    dependencies:
+      '@uploadthing/mime-types': 0.2.1
+      '@uploadthing/shared': 5.2.5_3m7titkmphg2qnptjtv5nfrvzy
+    transitivePeerDependencies:
+      - zod
+    dev: false
 
   /uri-js/4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
