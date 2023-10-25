@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@hookform/resolvers': ^3.3.2
   '@kinde-oss/kinde-auth-nextjs': ^1.8.24
+  '@mantine/hooks': ^7.1.5
   '@pinecone-database/pinecone': ^1.0.1
   '@prisma/client': 5.4.2
   '@radix-ui/react-dialog': ^1.0.5
@@ -54,6 +55,7 @@ specifiers:
 dependencies:
   '@hookform/resolvers': 3.3.2_react-hook-form@7.47.0
   '@kinde-oss/kinde-auth-nextjs': 1.8.24_biqbaboplfbrettd7655fr4n2y
+  '@mantine/hooks': 7.1.5_react@18.2.0
   '@pinecone-database/pinecone': 1.1.1
   '@prisma/client': 5.4.2_prisma@5.4.2
   '@radix-ui/react-dialog': 1.0.5_pipvdqpnkok7tsr4kdirij3tbu
@@ -317,6 +319,14 @@ packages:
     resolution: {integrity: sha512-mm6AvOZotjnqfSeIiyxeeUNNPua4QSadvLrpLRWFg9mCKT66LNQ0A8ZQz6ajCoWiJXjpy+qFaBko3ac4LEqsPw==}
     dependencies:
       uncrypto: 0.1.3
+    dev: false
+
+  /@mantine/hooks/7.1.5_react@18.2.0:
+    resolution: {integrity: sha512-LuKlJ5VDLYBMcleyKcL6nvcJZQaeJF4mIU5ryEiucy7IleZoD+lqWwNC1VAAN1fsjBRQfhFtFoRihUdIy/vDCA==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@mapbox/node-pre-gyp/1.0.11:
